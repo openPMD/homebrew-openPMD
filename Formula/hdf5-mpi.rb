@@ -11,7 +11,7 @@ class Hdf5Mpi < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "gcc" # for gfortran
+  depends_on "gcc" => :build  # for gfortran
   depends_on "open-mpi"
   depends_on "szip"
   uses_from_macos "zlib"
@@ -39,6 +39,9 @@ class Hdf5Mpi < Formula
       --enable-parallel
       CC=mpicc
       CXX=mpic++
+      FC=mpifort
+      F77=mpif77
+      F90=mpif90
     ]
 
     system "./configure", *args
