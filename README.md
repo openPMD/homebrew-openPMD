@@ -13,7 +13,7 @@ Please open an issue in any case when trying this, we welcome any feedback on it
 
 ## To Do
 
-- [ ] set pkg-config environment helpers
+- [ ] set pkg-config environment helpers... but brew does not set `PKG_CONFIG_PATH`
 
 
 ## Provided Packages

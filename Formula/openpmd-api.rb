@@ -17,8 +17,6 @@ class OpenpmdApi < Formula
   depends_on "nlohmann-json"
   depends_on "numpy"
   depends_on "open-mpi"
-  # for e.g. WarpX users
-  depends_on "pkg-config"
   depends_on "pybind11"
   depends_on "python"
 
