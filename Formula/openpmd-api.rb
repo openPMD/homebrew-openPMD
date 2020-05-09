@@ -10,8 +10,7 @@ class OpenpmdApi < Formula
   # adios (no package)
   depends_on "adios2"
   depends_on "catch2"
-  # "hdf5" (no MPI package)
-  depends_on "openpmd/openpmd/hdf5-mpi"
+  depends_on "hdf5-mpi"
   # mpark-variant (no package)
   depends_on "mpi4py"
   depends_on "nlohmann-json"
