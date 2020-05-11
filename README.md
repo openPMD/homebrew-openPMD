@@ -2,7 +2,12 @@
 
 This [Homebrew](http://brew.sh) formula installs provides recipes to build [openPMD](https://www.openpmd.org) libraries and tools on your MacOS or Linux system.
 
-TL;DR: Just execute `brew tap openpmd/openpmd` and `brew install openpmd-api`.
+TL;DR: Just execute
+```
+brew update
+brew tap openpmd/openpmd
+brew install openpmd-api
+```
 
 
 ## NOTE
