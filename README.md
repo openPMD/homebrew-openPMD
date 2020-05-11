@@ -1,6 +1,6 @@
 # openPMD Formulas for Homebrew
 
-This [Homebrew](http://brew.sh) formula installs provides recipes to build [openPMD](https://www.openpmd.org) libraries and tools on your MacOS or Linux system.
+This [Homebrew](http://brew.sh) formula installs provides recipes to build [openPMD](https://www.openpmd.org) libraries and tools on your macOS or Linux system.
 
 TL;DR: Just execute
 ```
