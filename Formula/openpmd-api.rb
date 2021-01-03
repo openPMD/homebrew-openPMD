@@ -1,8 +1,8 @@
 class OpenpmdApi < Formula
   desc "C++ & Python API for Scientific I/O with openPMD"
   homepage "https://openpmd-api.readthedocs.io"
-  url "https://github.com/openPMD/openPMD-api/archive/0.12.0-alpha.tar.gz"
-  sha256 "2529e0df68b2f7606c53439d42e5444ed4c2acf61bb1779ffd07b95d10b234ff"
+  url "https://github.com/openPMD/openPMD-api/archive/0.13.0.tar.gz"
+  sha256 "97c2e43d80ee5c5288f278bd54f0dcb40e7f48a575b278fcef9660214b779bb0"
   head "https://github.com/openPMD/openPMD-api.git", :branch => "dev"
 
   depends_on "cmake" => :build
@@ -28,7 +28,7 @@ class OpenpmdApi < Formula
       -DopenPMD_USE_PYTHON=ON
       -DopenPMD_USE_INTERNAL_PYBIND11=OFF
       -DopenPMD_USE_INTERNAL_CATCH=OFF
-      -DPYTHON_EXECUTABLE:FILEPATH=#{Formula["python"].opt_bin}/python3
+      -DPython_ROOT_DIR:FILEPATH=#{Formula["python"].prefix}
       -DBUILD_TESTING=OFF
       -DBUILD_EXAMPLES=OFF
     ]
@@ -46,7 +46,7 @@ class OpenpmdApi < Formula
   end
 
   test do
-    system "mpic++", "-std=c++11",
+    system "mpic++", "-std=c++14",
            (pkgshare/"examples/5_write_parallel.cpp"),
            "-I#{opt_include}",
            "-lopenPMD"
