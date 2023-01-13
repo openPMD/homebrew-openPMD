@@ -28,7 +28,7 @@ class OpenpmdApi < Formula
       -DopenPMD_USE_PYTHON=ON
       -DopenPMD_USE_INTERNAL_PYBIND11=OFF
       -DopenPMD_USE_INTERNAL_CATCH=OFF
-      -DPython_EXECUTABLE:FILEPATH=#{Formula["python"].opt_bin}/python3
+      -DPython_EXECUTABLE=#{which(python3)}
       -DBUILD_TESTING=OFF
       -DBUILD_EXAMPLES=OFF
     ]
