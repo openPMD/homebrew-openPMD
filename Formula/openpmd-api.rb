@@ -17,7 +17,11 @@ class OpenpmdApi < Formula
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "pybind11"
-  depends_on "python"
+  depends_on "python@3.11"
+
+  def python3
+    "python3.11"
+  end
 
   def install
     args = std_cmake_args + %W[
