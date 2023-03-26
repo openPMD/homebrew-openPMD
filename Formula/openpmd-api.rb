@@ -1,17 +1,16 @@
 class OpenpmdApi < Formula
   desc "C++ & Python API for Scientific I/O with openPMD"
   homepage "https://openpmd-api.readthedocs.io"
-  url "https://github.com/openPMD/openPMD-api/archive/0.14.5.tar.gz"
-  sha256 "e3f509098e75014394877e0dc91f833e57ced5552b110c7339a69e9dbe49bf62"
+  url "https://github.com/openPMD/openPMD-api/archive/0.15.0.tar.gz"
+  sha256 "290e3a3c5814204ea6527d53423bfacf7a8dc490713227c9e0eaa3abf4756177"
   head "https://github.com/openPMD/openPMD-api.git", :branch => "dev"
 
   depends_on "cmake" => :build
   # pkg-config (add for downstream convenience?)
   # adios (no package)
   depends_on "adios2"
-  depends_on "catch2"
+  #depends_on "catch2"  # we still use 2.X
   depends_on "hdf5-mpi"
-  # mpark-variant (no package)
   depends_on "mpi4py"
   depends_on "nlohmann-json"
   depends_on "numpy"
@@ -31,7 +30,7 @@ class OpenpmdApi < Formula
       -DopenPMD_USE_ADIOS2=ON
       -DopenPMD_USE_PYTHON=ON
       -DopenPMD_USE_INTERNAL_PYBIND11=OFF
-      -DopenPMD_USE_INTERNAL_CATCH=OFF
+      -DopenPMD_USE_INTERNAL_CATCH=ON
       -DPython_EXECUTABLE=#{which(python3)}
       -DBUILD_TESTING=OFF
       -DBUILD_EXAMPLES=OFF
@@ -50,7 +49,7 @@ class OpenpmdApi < Formula
   end
 
   test do
-    system "mpic++", "-std=c++14",
+    system "mpic++", "-std=c++17",
            (pkgshare/"examples/5_write_parallel.cpp"),
            "-I#{opt_include}",
            "-lopenPMD"
