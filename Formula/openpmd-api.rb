@@ -1,8 +1,8 @@
 class OpenpmdApi < Formula
   desc "C++ & Python API for Scientific I/O with openPMD"
   homepage "https://openpmd-api.readthedocs.io"
-  url "https://github.com/openPMD/openPMD-api/archive/0.15.0.tar.gz"
-  sha256 "290e3a3c5814204ea6527d53423bfacf7a8dc490713227c9e0eaa3abf4756177"
+  url "https://github.com/openPMD/openPMD-api/archive/0.15.1.tar.gz"
+  sha256 "0e81652152391ba4d2b62cfac95238b11233a4f89ff45e1fcffcc7bcd79dabe1"
   head "https://github.com/openPMD/openPMD-api.git", :branch => "dev"
 
   depends_on "cmake" => :build
