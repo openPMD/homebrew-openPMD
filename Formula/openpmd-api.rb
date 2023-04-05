@@ -22,6 +22,12 @@ class OpenpmdApi < Formula
     "python3.11"
   end
 
+  # forgot to bump version.hpp in 0.15.1
+  patch do
+    url "https://github.com/openPMD/openPMD-api/pull/1417.patch?full_index=1"
+    sha256 "c306483f1f94b308775a401c9cd67ee549fac6824a2264f5985499849fe210d5"
+  end
+
   def install
     args = std_cmake_args + %W[
       -DopenPMD_USE_MPI=ON
