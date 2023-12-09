@@ -16,10 +16,10 @@ class OpenpmdApi < Formula
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "pybind11"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
