@@ -15,6 +15,7 @@ class OpenpmdApi < Formula
   depends_on "open-mpi"
   depends_on "pybind11"
   depends_on "python@3.12"
+  depends_on "toml11"
 
   def python3
     "python3.12"
@@ -26,8 +27,7 @@ class OpenpmdApi < Formula
       -DopenPMD_USE_HDF5=ON
       -DopenPMD_USE_ADIOS2=ON
       -DopenPMD_USE_PYTHON=ON
-      -DopenPMD_USE_INTERNAL_PYBIND11=OFF
-      -DopenPMD_USE_INTERNAL_CATCH=ON
+      -DopenPMD_SUPERBUILD=OFF
       -DPython_EXECUTABLE=#{which(python3)}
       -DBUILD_TESTING=OFF
       -DBUILD_EXAMPLES=OFF
