@@ -21,6 +21,12 @@ class OpenpmdApi < Formula
     "python3.12"
   end
 
+  # fix superbuild control in 0.16.0
+  patch do
+    url "https://github.com/openPMD/openPMD-api/pull/1678.patch?full_index=1"
+    sha256 "e49fe79691bbb5aae2224d218f29801630d33f3a923c518f6bfb39ec22fd6a72"
+  end
+
   def install
     args = std_cmake_args + %W[
       -DopenPMD_USE_MPI=ON
