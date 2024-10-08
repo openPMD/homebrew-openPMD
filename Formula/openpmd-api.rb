@@ -1,13 +1,11 @@
 class OpenpmdApi < Formula
   desc "C++ & Python API for Scientific I/O with openPMD"
   homepage "https://openpmd-api.readthedocs.io"
-  url "https://github.com/openPMD/openPMD-api/archive/0.15.2.tar.gz"
-  sha256 "fbe3b356fe6f4589c659027c8056844692c62382e3ec53b953bed1c87e58ba13"
+  url "https://github.com/openPMD/openPMD-api/archive/0.16.0.tar.gz"
+  sha256 "b52222a4ab2511f9e3f6e21af222f57ab4fb6228623024fc5d982066333e104f"
   head "https://github.com/openPMD/openPMD-api.git", :branch => "dev"
 
   depends_on "cmake" => :build
-  # pkg-config (add for downstream convenience?)
-  # adios (no package)
   depends_on "adios2"
   #depends_on "catch2"  # we still use 2.X
   depends_on "hdf5-mpi"
@@ -26,7 +24,6 @@ class OpenpmdApi < Formula
     args = std_cmake_args + %W[
       -DopenPMD_USE_MPI=ON
       -DopenPMD_USE_HDF5=ON
-      -DopenPMD_USE_ADIOS1=OFF
       -DopenPMD_USE_ADIOS2=ON
       -DopenPMD_USE_PYTHON=ON
       -DopenPMD_USE_INTERNAL_PYBIND11=OFF
