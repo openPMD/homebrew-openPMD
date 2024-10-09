@@ -14,11 +14,11 @@ class OpenpmdApi < Formula
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "pybind11"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "toml11"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   # fix superbuild control in 0.16.0
