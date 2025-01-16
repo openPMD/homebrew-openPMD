@@ -1,8 +1,8 @@
 class OpenpmdApi < Formula
   desc "C++ & Python API for Scientific I/O with openPMD"
   homepage "https://openpmd-api.readthedocs.io"
-  url "https://github.com/openPMD/openPMD-api/archive/0.16.0.tar.gz"
-  sha256 "b52222a4ab2511f9e3f6e21af222f57ab4fb6228623024fc5d982066333e104f"
+  url "https://github.com/openPMD/openPMD-api/archive/0.16.1.tar.gz"
+  sha256 "a029a1779351949f41c1f36d0e75c698e59c5d284f080d5e4c2b8650779d2d58"
   head "https://github.com/openPMD/openPMD-api.git", :branch => "dev"
 
   depends_on "cmake" => :build
@@ -19,12 +19,6 @@ class OpenpmdApi < Formula
 
   def python3
     "python3.13"
-  end
-
-  # fix superbuild control in 0.16.0
-  patch do
-    url "https://github.com/openPMD/openPMD-api/pull/1678.patch?full_index=1"
-    sha256 "e49fe79691bbb5aae2224d218f29801630d33f3a923c518f6bfb39ec22fd6a72"
   end
 
   def install
