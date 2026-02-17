@@ -13,7 +13,7 @@ class OpenpmdApi < Formula
   depends_on "nlohmann-json"
   depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "pybind11"
+  depends_on "pybind11@3.0.1"
   depends_on "python@3.13"
   depends_on "toml11"
 
