@@ -13,12 +13,18 @@ class OpenpmdApi < Formula
   depends_on "nlohmann-json"
   depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "pybind11@3.0.1"
+  depends_on "pybind11"
   depends_on "python@3.13"
   depends_on "toml11"
 
   def python3
     "python3.13"
+  end
+
+  # fix pybind 3.0.2
+  patch do
+    url "https://github.com/openPMD/openPMD-api/pull/1849.patch?full_index=1"
+    sha256 "0fda91f9f1227832766dadacf12bfb5119cd179e60a73ccff15ac8c77b86b7ec"
   end
 
   def install
