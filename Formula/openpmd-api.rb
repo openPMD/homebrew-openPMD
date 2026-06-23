@@ -1,8 +1,8 @@
 class OpenpmdApi < Formula
   desc "C++ & Python API for Scientific I/O with openPMD"
   homepage "https://openpmd-api.readthedocs.io"
-  url "https://github.com/openPMD/openPMD-api/archive/0.17.0.tar.gz"
-  sha256 "97ff76111f77b06177caa48fa1b5e757967a60a66665f0c13384828d3ae1aa92"
+  url "https://github.com/openPMD/openPMD-api/archive/0.17.1.tar.gz"
+  sha256 "cd4340dc17b41e4fafd0d2893af23a1bee82d169f2b2ca40d012b79c87c564d8"
   head "https://github.com/openPMD/openPMD-api.git", :branch => "dev"
 
   depends_on "cmake" => :build
@@ -19,12 +19,6 @@ class OpenpmdApi < Formula
 
   def python3
     "python3.13"
-  end
-
-  # fix pybind 3.0.2
-  patch do
-    url "https://github.com/openPMD/openPMD-api/pull/1849.patch?full_index=1"
-    sha256 "0fda91f9f1227832766dadacf12bfb5119cd179e60a73ccff15ac8c77b86b7ec"
   end
 
   def install
