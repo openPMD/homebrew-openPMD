@@ -39,6 +39,9 @@ class OpenpmdApi < Formula
   end
 
   test do
+    assert_match "Usage", shell_output("#{bin}/openpmd-ls --help")
+    assert_match "Usage", shell_output("#{bin}/openpmd-convert-toml-json --help")
+
     system "mpic++", "-std=c++17",
            (pkgshare/"examples/5_write_parallel.cpp"),
            "-I#{opt_include}",
