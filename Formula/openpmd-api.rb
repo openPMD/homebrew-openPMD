@@ -1,13 +1,12 @@
 class OpenpmdApi < Formula
   desc "C++ & Python API for Scientific I/O with openPMD"
   homepage "https://openpmd-api.readthedocs.io"
-  url "https://github.com/openPMD/openPMD-api/archive/0.17.1.tar.gz"
+  url "https://github.com/openPMD/openPMD-api/archive/refs/tags/0.17.1.tar.gz"
   sha256 "cd4340dc17b41e4fafd0d2893af23a1bee82d169f2b2ca40d012b79c87c564d8"
   head "https://github.com/openPMD/openPMD-api.git", branch: "dev"
 
   depends_on "cmake" => :build
   depends_on "adios2"
-  # depends_on "catch2"  # we still use 2.X
   depends_on "hdf5-mpi"
   depends_on "mpi4py"
   depends_on "nlohmann-json"
