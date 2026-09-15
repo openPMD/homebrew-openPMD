@@ -36,10 +36,6 @@ class OpenpmdApi < Formula
 
     (pkgshare/"examples").install "examples/5_write_parallel.cpp"
     (pkgshare/"examples").install "examples/5_write_parallel.py"
-
-    # environment setups
-    # TODO: PYTHONPATH?
-    # bin.env_script_all_files("#{libexec}/lib/pkgconfig", :PKG_CONFIG_PATH => ENV["PKG_CONFIG_PATH"])
   end
 
   test do
