@@ -3,11 +3,11 @@ class OpenpmdApi < Formula
   homepage "https://openpmd-api.readthedocs.io"
   url "https://github.com/openPMD/openPMD-api/archive/0.17.1.tar.gz"
   sha256 "cd4340dc17b41e4fafd0d2893af23a1bee82d169f2b2ca40d012b79c87c564d8"
-  head "https://github.com/openPMD/openPMD-api.git", :branch => "dev"
+  head "https://github.com/openPMD/openPMD-api.git", branch: "dev"
 
   depends_on "cmake" => :build
   depends_on "adios2"
-  #depends_on "catch2"  # we still use 2.X
+  # depends_on "catch2"  # we still use 2.X
   depends_on "hdf5-mpi"
   depends_on "mpi4py"
   depends_on "nlohmann-json"
@@ -33,7 +33,7 @@ class OpenpmdApi < Formula
       -DBUILD_EXAMPLES=OFF
     ]
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "-S", "..", "-B", ".", *args
       system "make", "install"
     end
 
@@ -53,16 +53,16 @@ class OpenpmdApi < Formula
     system "mpiexec",
            "-n", "2",
            "./a.out"
-    assert_predicate testpath/"../samples/5_parallel_write.h5", :exist?
+    assert_path_exists testpath/"../samples/5_parallel_write.h5"
 
-    system "#{Formula["python"].opt_bin}/python3",
+    system "#{formula_opt_bin("python")}/python3",
            "-c", "import openpmd_api"
 
     system "mpiexec",
            "-n", "2",
-           "#{Formula["python"].opt_bin}/python3",
+           "#{formula_opt_bin("python")}/python3",
            "-m", "mpi4py",
            (pkgshare/"examples/5_write_parallel.py")
-    assert_predicate testpath/"../samples/5_parallel_write_py.h5", :exist?
+    assert_path_exists testpath/"../samples/5_parallel_write_py.h5"
   end
 end
