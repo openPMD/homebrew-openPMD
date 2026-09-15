@@ -9,7 +9,8 @@ brew tap openpmd/openpmd
 brew install openpmd-api
 ```
 
-If you are not using CMake, you might want to set this environment hint:
+If you are not using CMake, Homebrew's `pkg-config` finds openPMD-api without extra setup.
+If a different `pkg-config` comes first in your `PATH` (check with `command -v pkg-config`), e.g., from an active conda/mamba or Spack environment, set this environment hint:
 ```bash
 export PKG_CONFIG_PATH=$(brew --prefix openpmd-api)/lib/pkgconfig:$PKG_CONFIG_PATH
 ```

@@ -28,6 +28,8 @@ class OpenpmdApi < Formula
       -DBUILD_TESTING=OFF
       -DBUILD_EXAMPLES=OFF
     ]
+    # openPMD.pc needs CMAKE_INSTALL_{BIN,INCLUDE}DIR, but GNUInstallDirs is skipped if CMAKE_INSTALL_LIBDIR is set
+    args += %w[-DCMAKE_INSTALL_BINDIR=bin -DCMAKE_INSTALL_INCLUDEDIR=include]
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
