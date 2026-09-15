@@ -44,6 +44,7 @@ class OpenpmdApi < Formula
     system "mpic++", "-std=c++17",
            (pkgshare/"examples/5_write_parallel.cpp"),
            "-I#{opt_include}",
+           "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}",
            "-lopenPMD"
     system "mpiexec",
            "-n", "2",
