@@ -13,12 +13,8 @@ class OpenpmdApi < Formula
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "pybind11"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "toml11"
-
-  def python3
-    "python3.13"
-  end
 
   def install
     args = std_cmake_args + %W[
@@ -27,7 +23,8 @@ class OpenpmdApi < Formula
       -DopenPMD_USE_ADIOS2=ON
       -DopenPMD_USE_PYTHON=ON
       -DopenPMD_SUPERBUILD=OFF
-      -DPython_EXECUTABLE=#{which(python3)}
+      -DPython_EXECUTABLE=#{python3}
+      -DopenPMD_INSTALL_PYTHONDIR=#{Language::Python.site_packages(python3)}
       -DBUILD_TESTING=OFF
       -DBUILD_EXAMPLES=OFF
     ]
@@ -53,12 +50,11 @@ class OpenpmdApi < Formula
            "./a.out"
     assert_path_exists testpath/"../samples/5_parallel_write.h5"
 
-    system "#{formula_opt_bin("python")}/python3",
-           "-c", "import openpmd_api"
+    system python3, "-c", "import openpmd_api"
 
     system "mpiexec",
            "-n", "2",
-           "#{formula_opt_bin("python")}/python3",
+           python3,
            "-m", "mpi4py",
            (pkgshare/"examples/5_write_parallel.py")
     assert_path_exists testpath/"../samples/5_parallel_write_py.h5"
