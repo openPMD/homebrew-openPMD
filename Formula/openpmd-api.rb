@@ -31,10 +31,9 @@ class OpenpmdApi < Formula
       -DBUILD_TESTING=OFF
       -DBUILD_EXAMPLES=OFF
     ]
-    mkdir "build" do
-      system "cmake", "-S", "..", "-B", ".", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     (pkgshare/"examples").install "examples/5_write_parallel.cpp"
     (pkgshare/"examples").install "examples/5_write_parallel.py"
