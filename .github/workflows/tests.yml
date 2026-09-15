@@ -50,12 +50,12 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - run: brew test-bot --only-formulae
-        if: github.event_name == 'pull_request'
-
-      # test-bot detects no changed formulae on branch pushes, so name them explicitly
-      - run: brew test-bot --only-formulae --testing-formulae=openpmd/openpmd/openpmd-api
-        if: github.event_name != 'pull_request'
+      # name the formula: pushes detect no changes, and "added" makes linkage/test failures fatal
+      - run: >-
+          brew test-bot --only-formulae
+          --testing-formulae=openpmd/openpmd/openpmd-api
+          --added-formulae=openpmd/openpmd/openpmd-api
+          --skip-new --skip-new-strict
 
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
