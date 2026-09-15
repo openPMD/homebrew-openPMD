@@ -30,6 +30,9 @@ class OpenpmdApi < Formula
     ]
     # openPMD.pc needs CMAKE_INSTALL_{BIN,INCLUDE}DIR, but GNUInstallDirs is skipped if CMAKE_INSTALL_LIBDIR is set
     args += %w[-DCMAKE_INSTALL_BINDIR=bin -DCMAKE_INSTALL_INCLUDEDIR=include]
+    # upstream's @loader_path/$ORIGIN install rpath only fits lib/, not bin/ or the Python module
+    site_packages = prefix/Language::Python.site_packages(python3)
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: site_packages/"openpmd_api")}"
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
